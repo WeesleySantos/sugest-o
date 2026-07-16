@@ -6,6 +6,35 @@ O código inicial da sugestão já está aqui nesta pasta (o projeto `Theatrical
 
 A ideia é um exercício de refatoração, design de software e implementação de novas funcionalidades em cima de uma aplicação que já existe: deixar ela mais testável, dar conta de novos requisitos e garantir que a solução é confiável por meio de testes.
 
+## Solução implementada
+
+A solução usa uma **Clean Architecture leve**, mantendo o projeto pequeno e
+separando as responsabilidades em três áreas:
+
+- `Domain`: entidades, modelo do extrato e regras de preço/créditos.
+- `Application`: geração do extrato e contrato dos formatadores.
+- `Infrastructure`: apresentação do extrato nos formatos texto e XML.
+
+O `StatementPrinter` permanece como uma facade para preservar a API original.
+O cálculo de cada gênero segue o padrão **Strategy** por meio de
+`IPlayTypeCalculator`. Tragédia, comédia e histórico possuem implementações
+independentes, e novos gêneros podem ser adicionados sem alterar o fluxo de
+geração do extrato. O `StatementGenerator` produz um modelo neutro, que pode ser
+convertido por `TextStatementFormatter` ou `XmlStatementFormatter` sem repetir
+regras de negócio.
+
+Os cálculos são cobertos por testes unitários com xUnit. As saídas completas de
+texto e XML são protegidas por testes de aprovação com Verify.
+
+Para executar:
+
+```bash
+dotnet test
+```
+
+Valores monetários são mantidos em centavos durante os cálculos, evitando perda
+de precisão; a conversão ocorre somente na formatação da saída.
+
 ## 📜 Apresentação e estado atual da aplicação
 
 Essa aplicação é usada por uma companhia de teatro para gerar extratos impressos a partir das faturas de seus clientes.
