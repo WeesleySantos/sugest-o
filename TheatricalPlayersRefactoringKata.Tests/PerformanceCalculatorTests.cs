@@ -94,6 +94,23 @@ public class PerformanceCalculatorTests
         Assert.Equal(12, _calculator.CalculateCredits(play, performance));
     }
 
+    [Theory]
+    [InlineData("Henry V", 3227, 20, 70540, 0)]
+    [InlineData("King John", 2648, 39, 93160, 9)]
+    public void History_CombinesTragedyAndComedyAmounts_AndUsesBaseCredits(
+        string name,
+        int lines,
+        int audience,
+        int expectedAmount,
+        int expectedCredits)
+    {
+        var play = new Play(name, lines, "history");
+        var performance = new Performance("history", audience);
+
+        Assert.Equal(expectedAmount, _calculator.CalculateAmount(play, performance));
+        Assert.Equal(expectedCredits, _calculator.CalculateCredits(play, performance));
+    }
+
     [Fact]
     public void CalculateAmount_UnknownType_Throws()
     {

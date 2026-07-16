@@ -11,7 +11,8 @@ public class PlayTypeCalculatorFactory
         : this(new Dictionary<string, IPlayTypeCalculator>
         {
             ["tragedy"] = new TragedyCalculator(),
-            ["comedy"] = new ComedyCalculator()
+            ["comedy"] = new ComedyCalculator(),
+            ["history"] = new HistoryCalculator()
         })
     {
     }
