@@ -1,0 +1,21 @@
+## .NET build
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Visual Studio / Rider / VS Code
+.vs/
+.vscode/
+*.DotSettings.user
+
+## Verify
+*.received.*
+
+## OS
+.DS_Store
+Thumbs.db
