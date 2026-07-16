@@ -33,6 +33,11 @@ Content-Type: application/json
 
 ###
 
+GET {{TheatricalPlayersRefactoringKata.Api_HostAddress}}/statements/1
+Accept: application/json
+
+###
+
 POST {{TheatricalPlayersRefactoringKata.Api_HostAddress}}/statements/xml
 Content-Type: application/json
 

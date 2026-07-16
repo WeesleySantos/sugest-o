@@ -43,6 +43,11 @@ Os endpoints `POST /statements/text` e `POST /statements/xml` recebem os mesmos
 dados e retornam o extrato no formato solicitado. Exemplos de requisição estão
 em `TheatricalPlayersRefactoringKata.Api/TheatricalPlayersRefactoringKata.Api.http`.
 
+Cada extrato gerado é persistido com suas peças e apresentações em um banco
+SQLite local. O identificador é devolvido no header `X-Statement-Id`, e o
+registro pode ser consultado em `GET /statements/{id}`. O banco é criado
+automaticamente na primeira execução e não é versionado.
+
 Valores monetários são mantidos em centavos durante os cálculos, evitando perda
 de precisão; a conversão ocorre somente na formatação da saída.
 
