@@ -1,0 +1,55 @@
+@TheatricalPlayersRefactoringKata.Api_HostAddress = http://localhost:5161
+
+POST {{TheatricalPlayersRefactoringKata.Api_HostAddress}}/statements/text
+Content-Type: application/json
+
+{
+  "customer": "BigCo",
+  "plays": [
+    {
+      "id": "hamlet",
+      "name": "Hamlet",
+      "lines": 4024,
+      "type": "tragedy"
+    },
+    {
+      "id": "henry-v",
+      "name": "Henry V",
+      "lines": 3227,
+      "type": "history"
+    }
+  ],
+  "performances": [
+    {
+      "playId": "hamlet",
+      "audience": 55
+    },
+    {
+      "playId": "henry-v",
+      "audience": 20
+    }
+  ]
+}
+
+###
+
+POST {{TheatricalPlayersRefactoringKata.Api_HostAddress}}/statements/xml
+Content-Type: application/json
+
+{
+  "customer": "BigCo",
+  "plays": [
+    {
+      "id": "hamlet",
+      "name": "Hamlet",
+      "lines": 4024,
+      "type": "tragedy"
+    }
+  ],
+  "performances": [
+    {
+      "playId": "hamlet",
+      "audience": 55
+    }
+  ]
+}

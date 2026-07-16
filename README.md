@@ -32,6 +32,17 @@ Para executar:
 dotnet test
 ```
 
+Para iniciar a API REST:
+
+```bash
+dotnet run --project TheatricalPlayersRefactoringKata.Api
+```
+
+Com a API em execução, a documentação Swagger fica disponível em `/swagger`.
+Os endpoints `POST /statements/text` e `POST /statements/xml` recebem os mesmos
+dados e retornam o extrato no formato solicitado. Exemplos de requisição estão
+em `TheatricalPlayersRefactoringKata.Api/TheatricalPlayersRefactoringKata.Api.http`.
+
 Valores monetários são mantidos em centavos durante os cálculos, evitando perda
 de precisão; a conversão ocorre somente na formatação da saída.
 
